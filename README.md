@@ -9,8 +9,15 @@ Extract two-factor authentication (2FA, TFA) secret keys from export QR codes of
 3. Save the captured QR codes in a text file. Save each QR code on a new line. (The captured QR codes look like `otpauth-migration://offline?data=...`)
 4. Call this script with the file as input:
 
-        python extract_otp_secret_keys.py -p example_export.txt
+        python extract_otp_secret_keys.py example_export.txt
 
+### Optional Arguments
+
+    -h, --help     show help message and exit
+    --verbose, -v  verbose output
+    --saveqr, -s   save QR code(s) as images to the "qr" subfolder
+    --printqr, -p  print QR code(s) as text to the terminal (requires qrcode module listed below)
+    
 ## Requirement
 
 The protobuf package of Google for proto3 is required for running this script. protobuf >= 3.14 is recommended.
@@ -27,6 +34,8 @@ Known to work with
 For printing QR codes, the qrcode module is required
 
     pip install qrcode[pil]
+
+You can then call a printable QR code with the -p argument.
 
 ## Technical background
 
